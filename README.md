@@ -21,7 +21,10 @@ you.
 brew install --cask demircraftco/quarterdeck/quarterdeck
 ```
 
-macOS on Apple Silicon. The app is signed and notarized.
+macOS on Apple Silicon. The app is signed with an Apple Developer ID.
+
+**0.1.0 is waiting for Apple's notarization.** Until it lands, macOS may stop the first
+launch: open **System Settings → Privacy & Security** and click **Open Anyway** once.
 
 ## First run
 
