@@ -1,0 +1,7 @@
+{
+  "name": "homebrew-quarterdeck",
+  "private": true,
+  "scripts": {
+    "test": "node --test"
+  }
+}
