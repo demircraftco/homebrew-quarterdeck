@@ -1,19 +1,23 @@
 # Quarterdeck
 
-A productivity tool for running Claude Code sessions side by side — without keeping an editor
-open. When you are not writing code yourself, the work is supervising several agents: who is
-thinking, who is waiting for your answer, who is finished. Quarterdeck turns that into one
-window and a color per session.
+**Ahoooy, captain!** 🏴‍☠️
+
+On a ship, the quarterdeck is where the captain stands: you see the whole deck from there
+and step in only where you're needed. This app is that spot for your Claude Code sessions.
+
+Run up to six sessions side by side in one window. Each pane's border tells you how its
+session is doing — thinking, waiting for you, asking permission, done — so you stop
+clicking through tabs to find the one that needs you.
 
 ![Quarterdeck](media/quarterdeck-6.png)
 
 ## Why
 
-Working with Claude Code is an operation, and you are its operator. With one session that is
-easy. With four, you rotate through terminal tabs and editor windows asking "is this one
-waiting for me?", and every rotation costs attention. Quarterdeck keeps the sessions in one
-grid and answers that question with a color, so you switch context only when a session needs
-you.
+I built it for the days when I'm not writing code myself but running several agents at once.
+With one session that's easy. With four, I kept rotating through terminal tabs and editor
+windows asking "is this one waiting for me?", and every rotation cost a bit of attention.
+Quarterdeck answers that question with a color, so I switch context only when a session
+actually needs me.
 
 ## Install
 
@@ -62,12 +66,14 @@ Nothing parses the terminal output, so a redesign of Claude Code's interface can
 
 ## What's next
 
-Two parts run today on the author's machine and are being generalized for everyone:
+Being built now, not in this release yet:
 
 - **Captain's Deck** — a daily board inside Quarterdeck: your tasks, their state, and a
   button that resumes the right session in a pane.
-- **Work surfaces** — tools that report on your working records (open worktrees, notes,
-  what is ready to archive) get a region on the board.
+- **Work surfaces** — small reports on your working records (open worktrees, notes, what is
+  ready to archive), each with its own region on the board.
+
+Ideas and rough edges are welcome — that's how the next version gets shaped.
 
 <!-- Captain's Deck screenshot goes here: ![Captain's Deck](media/kosk.png) -->
 
