@@ -1,5 +1,7 @@
 # Quarterdeck
 
+<p align="center"><img src="media/captain.png" width="180" alt="The author as a pixel-art pirate captain"></p>
+
 **Ahoooy, captain!** 🏴‍☠️
 
 On a ship, the quarterdeck is where the captain stands: you see the whole deck from there
