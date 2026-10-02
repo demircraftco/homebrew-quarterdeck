@@ -5,7 +5,7 @@ open. When you are not writing code yourself, the work is supervising several ag
 thinking, who is waiting for your answer, who is finished. Quarterdeck turns that into one
 window and a color per session.
 
-<!-- Demo GIF goes here: ![Quarterdeck](media/demo.gif) -->
+![Quarterdeck](media/quarterdeck-6.png)
 
 ## Why
 
@@ -28,6 +28,8 @@ macOS on Apple Silicon. The app is signed with an Apple Developer ID and notariz
 Quarterdeck creates `~/Quarterdeck` and opens new panes there. To use another folder, click
 the helm in the top-right corner (or press **⌘,**) and choose one. Changing it affects new
 panes only; open panes stay where they are.
+
+![Settings](media/settings.png)
 
 ## What it does
 
