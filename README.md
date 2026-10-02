@@ -1,6 +1,6 @@
 # Quarterdeck
 
-<p align="center"><img src="media/captain.png" width="180" alt="The author as a pixel-art pirate captain"></p>
+<p align="center"><img src="media/icon.png" width="140" alt="Quarterdeck icon: a pixel helm"> &nbsp; <img src="media/captain.png" width="140" alt="The author as a pixel-art pirate captain"></p>
 
 **Ahoooy, captain!** 🏴‍☠️
 
