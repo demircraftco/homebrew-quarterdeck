@@ -29,6 +29,12 @@ brew install --cask demircraftco/quarterdeck/quarterdeck
 
 macOS on Apple Silicon. The app is signed with an Apple Developer ID and notarized by Apple.
 
+To update later:
+
+```bash
+brew upgrade --cask quarterdeck
+```
+
 ## First run
 
 Quarterdeck creates `~/Quarterdeck` and opens new panes there. To use another folder, click
