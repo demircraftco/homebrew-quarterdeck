@@ -59,6 +59,8 @@ panes only; open panes stay where they are.
   terminal.
 - **Open in VS Code.** The `</>` button in a pane's title bar opens that pane's folder in VS Code:
   the folder of the Claude session last seen in it, otherwise the folder the shell started in.
+- **Drop files in.** Drag a file from Finder or your editor onto a pane and its quoted path is typed
+  at the prompt — handy for giving Claude a file.
 - **Panes survive their shell.** When a shell exits the pane stays and can be restarted in place.
 - **English or Turkish.** In settings or View → Language.
 
