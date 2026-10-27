@@ -57,6 +57,10 @@ panes only; open panes stay where they are.
   `~/.quarterdeck/not`; it does not take a pane slot.
 - **Drag to rearrange.** Grab a pane by its title bar. The terminal body belongs to the
   terminal.
+- **One pane fills the board.** The button in a pane's title bar, or **⇧⌘↩**, lets it take
+  the whole board; press again and the grid comes back as it was.
+- **Drag the lines between panes** to resize columns and rows; a double-click makes them equal
+  again. The sizes are kept for the next launch.
 - **Open in VS Code.** The `</>` button in a pane's title bar opens that pane's folder in VS Code:
   the folder of the Claude session last seen in it, otherwise the folder the shell started in.
 - **Drop files in.** Drag a file from Finder or your editor onto a pane and its quoted path is typed
