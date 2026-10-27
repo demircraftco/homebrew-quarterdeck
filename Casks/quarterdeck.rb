@@ -1,6 +1,6 @@
 cask "quarterdeck" do
-  version "0.3.3"
-  sha256 "854df0feaebb0ca3f2c06ec7b124a23e8d5986d6fdf5af36a3b734d36ce4a6f5"
+  version "0.4.0"
+  sha256 "aed760611d2f53186060521866236eec9d394b93993673779b311a6e7a4434be"
 
   url "https://github.com/demircraftco/homebrew-quarterdeck/releases/download/v#{version}/Quarterdeck-#{version}-arm64-mac.zip"
   name "Quarterdeck"
