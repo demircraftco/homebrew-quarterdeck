@@ -16,4 +16,7 @@ cask "quarterdeck" do
     "~/.quarterdeck",
     "~/Library/Application Support/quarterdeck",
   ]
+
+  # An upgrade replaces the app on disk; a copy that is already running stays on the old version (issue #2).
+  caveats "Quit and reopen Quarterdeck to load the new version."
 end

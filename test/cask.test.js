@@ -33,3 +33,9 @@ test('zap never removes ~/Quarterdeck, the user work folder', () => {
   // macOS file systems are case-insensitive, so ~/quarterdeck is the same folder.
   for (const p of paths) assert.doesNotMatch(p, /^~\/quarterdeck(\/|$)/i, `zap would delete ${p}`);
 });
+
+// Issue #2: after `brew upgrade` a running Quarterdeck stays on the old version until it is reopened.
+test('caveats: quit and reopen to load the new version; the last stanza, as Homebrew orders them', () => {
+  assert.match(source, /^  caveats "Quit and reopen Quarterdeck to load the new version\."$/m);
+  assert.ok(source.indexOf('caveats') > source.indexOf('zap trash:'), 'caveats after zap');
+});
