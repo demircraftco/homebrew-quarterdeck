@@ -8,6 +8,7 @@ cask "quarterdeck" do
   homepage "https://github.com/demircraftco/homebrew-quarterdeck"
 
   depends_on arch: :arm64
+  depends_on macos: ">= :ventura"
 
   app "Quarterdeck.app"
 
@@ -18,5 +19,9 @@ cask "quarterdeck" do
   ]
 
   # An upgrade replaces the app on disk; a copy that is already running stays on the old version (issue #2).
-  caveats "Quit and reopen Quarterdeck to load the new version."
+  caveats <<~EOS
+    Quarterdeck runs Claude Code, which you install and sign in to yourself:
+      https://docs.anthropic.com/en/docs/claude-code
+    After an upgrade: Quit and reopen Quarterdeck to load the new version.
+  EOS
 end

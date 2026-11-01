@@ -8,10 +8,9 @@ On a ship, the quarterdeck is where the captain stands: you see the whole deck f
 and step in only where you're needed. This app is that spot for your Claude Code sessions.
 
 Run up to six sessions side by side in one window. Each pane's border tells you how its
-session is doing — thinking, waiting for you, asking permission, done — so you stop
-clicking through tabs to find the one that needs you.
+session is doing, so you stop clicking through tabs to find the one that needs you.
 
-![Quarterdeck](media/quarterdeck-6.png)
+<!-- Screenshots of the current interface go here. -->
 
 ## Why
 
@@ -21,76 +20,76 @@ windows asking "is this one waiting for me?", and every rotation cost a bit of a
 Quarterdeck answers that question with a color, so I switch context only when a session
 actually needs me.
 
+## Requirements
+
+- A Mac with Apple Silicon, macOS 13 or later (talking to the chief needs macOS 26)
+- [Claude Code](https://docs.anthropic.com/en/docs/claude-code), installed and signed in. Quarterdeck does not install it
+  and needs no account of its own.
+
 ## Install
 
 ```bash
 brew install --cask demircraftco/quarterdeck/quarterdeck
 ```
 
-macOS on Apple Silicon. The app is signed with an Apple Developer ID and notarized by Apple.
-
-To update later:
+The app is signed with an Apple Developer ID and notarized by Apple. To update:
 
 ```bash
 brew upgrade --cask quarterdeck
 ```
 
+Quit and reopen the app to load the new version.
+
 ## First run
 
-Quarterdeck creates `~/Quarterdeck` and opens new panes there. To use another folder, click
-the helm in the top-right corner (or press **⌘,**) and choose one. Changing it affects new
-panes only; open panes stay where they are.
-
-![Settings](media/settings.png)
+You get one empty pane, a terminal in `~/Quarterdeck`. Type `claude` and press Enter. To use another folder, click the
+helm in the top-right corner (or press **⌘,**). A change affects new panes only.
 
 ## What it does
 
-- **Live panes.** Up to six real terminals in one window, each running your own shell.
-  Start `claude` in any of them.
-- **State as color.** Each pane's border shows the session inside: running, waiting for
-  input, needs permission, idle, done — or unknown, which stays unknown rather than being
-  guessed.
-- **Context weight.** The pane title shows where the session's context goes: the fixed base,
-  tool results, and the conversation itself, so you can tell which kind of compaction helps.
-- **Priority marks.** **⌘1–4** mark the focused pane as *now*, *plan*, *delegate* or *drop*.
-- **Quick note.** **⌘J** opens a note drawer running its own Claude session in
-  `~/.quarterdeck/not`; it does not take a pane slot.
-- **Drag to rearrange.** Grab a pane by its title bar. The terminal body belongs to the
-  terminal.
-- **One pane fills the board.** The button in a pane's title bar, or **⇧⌘↩**, lets it take
-  the whole board; press again and the grid comes back as it was.
-- **Drag the lines between panes** to resize columns and rows; a double-click makes them equal
-  again. The sizes are kept for the next launch.
-- **Open in VS Code.** The `</>` button in a pane's title bar opens that pane's folder in VS Code:
-  the folder of the Claude session last seen in it, otherwise the folder the shell started in.
-- **Drop files in.** Drag a file from Finder or your editor onto a pane and its quoted path is typed
-  at the prompt — handy for giving Claude a file.
-- **Panes survive their shell.** When a shell exits the pane stays and can be restarted in place.
-- **English or Turkish.** In settings or View → Language.
+- **Live panes.** Up to six real terminals in one window, each running your own shell. Start `claude` in any of them.
+- **State as color.** Each pane's border shows the session inside: running, waiting for input, needs permission, idle,
+  done. Unknown stays unknown rather than being guessed.
+- **Context weight.** The pane title shows where the session's context goes, so you can tell which kind of compaction
+  helps.
+- **Panes come back.** Quit and reopen: the panes return in order and Claude panes resume their session.
+- **Bridge.** **⌘.** opens a Claude session of its own, the chief, with your panes as cards around it. Choose which panes
+  it manages. It types to a pane only when that pane is idle; a message to a busy pane or one asking a permission waits up
+  to 10 minutes, then is dropped and logged.
+- **Questions as forms.** The chief's questions open as Kage-e forms over the Bridge. Kage-e's own buttons are in Turkish
+  for now.
+- **Talk to the chief.** On macOS 26, press the parrot and talk. Nothing is sent until you press Send.
+- **Priority marks, a note drawer, drag to rearrange.** **⌘1–4** mark a pane, **⌘J** opens a note with its own session,
+  and a pane moves by its title bar.
+- **English or Turkish.** The first launch follows your system; change it in settings or View → Language.
 
-### How it knows the state
+## Privacy
 
-From `~/.claude/sessions/<pid>.json`, matched to the pane's shell by walking the process tree.
-Nothing parses the terminal output, so a redesign of Claude Code's interface cannot break it.
+- **No telemetry.** There is no analytics or usage reporting in the app.
+- **One request of its own.** Quarterdeck asks GitHub for the latest release's version, link and notes. GitHub sees a plain
+  web request. **Update** runs `brew upgrade --cask quarterdeck`, and only when you click it.
+- **Microphone.** Used only while you talk to the chief, after macOS asks your permission. Apple's on-device dictation turns
+  speech into text (macOS may download its speech model first), and the audio is not saved.
+- **Your sessions.** State comes from `~/.claude/sessions/<pid>.json`, and the context weight from the session's transcript,
+  both read on your Mac. The visible terminal screen is read in one place: a menu on it holds the chief's messages. Only
+  that yes or no is kept.
+- **What Claude Code sees.** Claude Code talks to Anthropic as usual. The chief is a Claude session too: the panes you give
+  it, with their last messages, are written to `~/.quarterdeck/kosk/durum.json` for it to read.
 
-## Requirements
+## Uninstall
 
-- macOS on Apple Silicon
-- [Claude Code](https://docs.anthropic.com/en/docs/claude-code) installed and on your `PATH`
+```bash
+brew uninstall --cask quarterdeck
+```
 
-## What's next
+This removes the app and keeps your settings. To remove `~/.quarterdeck` and the app's support folder too:
 
-Being built now, not in this release yet:
+```bash
+brew uninstall --zap --cask quarterdeck
+```
 
-- **Captain's Deck** — a daily board inside Quarterdeck: your tasks, their state, and a
-  button that resumes the right session in a pane.
-- **Work surfaces** — small reports on your working records (open worktrees, notes, what is
-  ready to archive), each with its own region on the board.
-
-Ideas and rough edges are welcome — that's how the next version gets shaped.
-
-<!-- Captain's Deck screenshot goes here: ![Captain's Deck](media/kosk.png) -->
+Your work in `~/Quarterdeck` is never removed.
 
 ## License
 
-Free to use. Quarterdeck is closed source; all rights reserved — see [`LICENSE`](LICENSE).
+Free to use. Quarterdeck is closed source; all rights reserved. See [`LICENSE`](LICENSE).

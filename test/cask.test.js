@@ -36,6 +36,8 @@ test('zap never removes ~/Quarterdeck, the user work folder', () => {
 
 // Issue #2: after `brew upgrade` a running Quarterdeck stays on the old version until it is reopened.
 test('caveats: quit and reopen to load the new version; the last stanza, as Homebrew orders them', () => {
-  assert.match(source, /^  caveats "Quit and reopen Quarterdeck to load the new version\."$/m);
+  assert.match(source, /^    After an upgrade: Quit and reopen Quarterdeck to load the new version\.$/m);
+  assert.match(source, /^    Quarterdeck runs Claude Code, which you install and sign in to yourself:$/m);
+  assert.match(source, /^  depends_on macos: ">= :ventura"$/m);
   assert.ok(source.indexOf('caveats') > source.indexOf('zap trash:'), 'caveats after zap');
 });
