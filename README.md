@@ -56,8 +56,7 @@ helm in the top-right corner (or press **⌘,**). A change affects new panes onl
 - **Bridge.** **⌘.** opens a Claude session of its own, the chief, with your panes as cards around it. Choose which panes
   it manages. It types to a pane only when that pane is idle; a message to a busy pane or one asking a permission waits up
   to 10 minutes, then is dropped and logged.
-- **Questions as forms.** The chief's questions open as Kage-e forms over the Bridge. Kage-e's own buttons are in Turkish
-  for now.
+- **Questions as forms.** The chief's questions open as Kage-e forms over the Bridge, in the app's language.
 - **Talk to the chief.** On macOS 26, press the parrot and talk. Nothing is sent until you press Send.
 - **Priority marks, a note drawer, drag to rearrange.** **⌘1–4** mark a pane, **⌘J** opens a note with its own session,
   and a pane moves by its title bar.
