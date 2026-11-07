@@ -1,5 +1,7 @@
 # Quarterdeck
 
+<!-- covers Quarterdeck 0.5.0 -->
+
 <p align="center"><img src="media/icon.png" width="140" alt="Quarterdeck icon: a pixel helm"> &nbsp; <img src="media/captain.png" width="140" alt="The author as a pixel-art pirate captain"></p>
 
 **Ahoooy, captain!** 🏴‍☠️
@@ -24,7 +26,8 @@ actually needs me.
 
 - A Mac with Apple Silicon, macOS 13 or later (talking to the chief needs macOS 26)
 - [Claude Code](https://docs.anthropic.com/en/docs/claude-code), installed and signed in. Quarterdeck does not install it
-  and needs no account of its own.
+  and needs no account of its own. The chief starts only the `claude` signed by Anthropic, from where its installer puts
+  it: with a copy installed through npm, panes work but the Bridge has no chief.
 
 ## Install
 
@@ -45,6 +48,9 @@ Quit and reopen the app to load the new version.
 You get one empty pane, a terminal in `~/Quarterdeck`. Type `claude` and press Enter. To use another folder, click the
 helm in the top-right corner (or press **⌘,**). A change affects new panes only.
 
+The first time you open the Bridge, Claude Code asks whether you trust the chief's folder. Its default answer is
+*No, exit*: choose **Yes, I trust this folder**.
+
 ## What it does
 
 - **Live panes.** Up to six real terminals in one window, each running your own shell. Start `claude` in any of them.
@@ -53,9 +59,18 @@ helm in the top-right corner (or press **⌘,**). A change affects new panes onl
 - **Context weight.** The pane title shows where the session's context goes, so you can tell which kind of compaction
   helps.
 - **Panes come back.** Quit and reopen: the panes return in order and Claude panes resume their session.
-- **Bridge.** **⌘.** opens a Claude session of its own, the chief, with your panes as cards around it. Choose which panes
-  it manages. It types to a pane only when that pane is idle; a message to a busy pane or one asking a permission waits up
-  to 10 minutes, then is dropped and logged.
+- **Bridge.** **⌘.** opens a Claude session of its own, the chief, with your panes as cards around it. A click on a card
+  takes you to that pane; the **chief manages** box on it is a choice of its own. The chief types to a pane only when that
+  pane is idle, and only while Claude itself reads that terminal. A message to a busy pane or one asking a permission
+  waits up to 10 minutes, then is dropped and logged.
+- **The chief runs no commands.** A command it wants run waits as a card on the Bridge, whole, with its folder. Only a
+  pointer click on **Yes, run it** runs it, in Quarterdeck's own shell; Enter does not. A risky pattern (`sudo`,
+  `rm -rf`, a download piped to a shell, a hidden character and a few more) turns the card red. A card never calls a
+  command safe.
+- **One approval history.** The chief's messages and the commands you decided, newest first. Each row says whether it
+  went through, and a command's output opens under it.
+- **A pane waiting for you says so.** Its card shows how long it has waited. With Quarterdeck not in front, a notification
+  comes after 45 seconds and once more 10 minutes later, and the Dock counts the waiting panes.
 - **Questions as forms.** The chief's questions open as Kage-e forms over the Bridge, in the app's language.
 - **Talk to the chief.** On macOS 26, press the parrot and talk. Nothing is sent until you press Send.
 - **Priority marks, a note drawer, drag to rearrange.** **⌘1–4** mark a pane, **⌘J** opens a note with its own session,
@@ -67,6 +82,8 @@ helm in the top-right corner (or press **⌘,**). A change affects new panes onl
 - **No telemetry.** There is no analytics or usage reporting in the app.
 - **One request of its own.** Quarterdeck asks GitHub for the latest release's version, link and notes. GitHub sees a plain
   web request. **Update** runs `brew upgrade --cask quarterdeck`, and only when you click it.
+- **Notifications.** A waiting pane's notification names the pane's folder, never the command it waits on: that could
+  hold a key.
 - **Microphone.** Used only while you talk to the chief, after macOS asks your permission. Apple's on-device dictation turns
   speech into text (macOS may download its speech model first), and the audio is not saved.
 - **Your sessions.** State comes from `~/.claude/sessions/<pid>.json`, and the context weight from the session's transcript,
