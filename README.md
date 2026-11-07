@@ -1,6 +1,6 @@
 # Quarterdeck
 
-<!-- covers Quarterdeck 0.5.0 -->
+<!-- covers Quarterdeck 0.5.1 -->
 
 <p align="center"><img src="media/icon.png" width="140" alt="Quarterdeck icon: a pixel helm"> &nbsp; <img src="media/captain.png" width="140" alt="The author as a pixel-art pirate captain"></p>
 
@@ -66,7 +66,7 @@ The first time you open the Bridge, Claude Code asks whether you trust the chief
 - **The chief runs no commands.** A command it wants run waits as a card on the Bridge, whole, with its folder. Only a
   pointer click on **Yes, run it** runs it, in Quarterdeck's own shell; Enter does not. A risky pattern (`sudo`,
   `rm -rf`, a download piped to a shell, a hidden character and a few more) turns the card red. A card never calls a
-  command safe.
+  command safe. A long command scrolls in its own box, and **Yes** opens once you have scrolled to its end.
 - **One approval history.** The chief's messages and the commands you decided, newest first. Each row says whether it
   went through, and a command's output opens under it.
 - **A pane waiting for you says so.** Its card shows how long it has waited. With Quarterdeck not in front, a notification
@@ -76,6 +76,24 @@ The first time you open the Bridge, Claude Code asks whether you trust the chief
 - **Priority marks, a note drawer, drag to rearrange.** **⌘1–4** mark a pane, **⌘J** opens a note with its own session,
   and a pane moves by its title bar.
 - **English or Turkish.** The first launch follows your system; change it in settings or View → Language.
+
+## What the chief can and can't do
+
+The chief writes to every pane you give it. A web page or a file can slip an instruction into its context, and that
+instruction must not spread to all your panes. So the chief starts with its hands tied (`claude --restricted`, with no
+shell):
+
+- **It reads** its own folder, the folders of the panes it manages, and Claude Code's session logs. Your Desktop,
+  Movies, `/tmp` or another project are closed to it unless they sit inside the folder of a pane it manages. Your home
+  folder itself is never given to it: the folder of a pane started there stays closed, while panes in folders inside
+  it are read. When you choose another pane later, the chief reads that pane's folder once it starts again.
+- **It runs no command.** It asks with a card, and only your click runs the command.
+- **It searches the web** but does not open pages.
+- **It takes no message from another session.** A pane's report reaches it through the file Quarterdeck writes
+  (`durum.json`).
+
+When a job needs more, the chief says which limit it hits before trying, and offers to hand the job to a pane working
+in that folder. A pane is your own Claude session, with the permissions you give it.
 
 ## Privacy
 
