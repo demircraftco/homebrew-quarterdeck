@@ -21,6 +21,12 @@ test('url points at the arm64 zip of the tagged release', () => {
   );
 });
 
+// Homebrew 7 warns on every run for the string form (">= :ventura"); a bare symbol means that release or later.
+test('requires macOS Ventura or later, in the symbol form Homebrew does not warn about', () => {
+  assert.match(source, /^  depends_on macos: :ventura$/m);
+  assert.doesNotMatch(source, /depends_on macos: "/);
+});
+
 test('requires Apple silicon', () => {
   assert.match(source, /^\s*depends_on arch: :arm64$/m);
 });
@@ -38,6 +44,6 @@ test('zap never removes ~/Quarterdeck, the user work folder', () => {
 test('caveats: quit and reopen to load the new version; the last stanza, as Homebrew orders them', () => {
   assert.match(source, /^    After an upgrade: Quit and reopen Quarterdeck to load the new version\.$/m);
   assert.match(source, /^    Quarterdeck runs Claude Code, which you install and sign in to yourself:$/m);
-  assert.match(source, /^  depends_on macos: ">= :ventura"$/m);
+  assert.match(source, /^  depends_on macos: :ventura$/m);
   assert.ok(source.indexOf('caveats') > source.indexOf('zap trash:'), 'caveats after zap');
 });
