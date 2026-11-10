@@ -1,6 +1,6 @@
 # Quarterdeck
 
-<!-- covers Quarterdeck 0.5.1 -->
+<!-- covers Quarterdeck 0.6.0 -->
 
 <p align="center"><img src="media/icon.png" width="140" alt="Quarterdeck icon: a pixel helm"> &nbsp; <img src="media/captain.png" width="140" alt="The author as a pixel-art pirate captain"></p>
 
@@ -24,7 +24,7 @@ actually needs me.
 
 ## Requirements
 
-- A Mac with Apple Silicon, macOS 13 or later (talking to the chief needs macOS 26)
+- A Mac with Apple Silicon, macOS 13 or later (talking to Pupa needs macOS 26)
 - [Claude Code](https://docs.anthropic.com/en/docs/claude-code), installed and signed in. Quarterdeck does not install it
   and needs no account of its own. The chief starts only the `claude` signed by Anthropic, from where its installer puts
   it: with a copy installed through npm, panes work but the Bridge has no chief.
@@ -71,8 +71,17 @@ The first time you open the Bridge, Claude Code asks whether you trust the chief
   went through, and a command's output opens under it.
 - **A pane waiting for you says so.** Its card shows how long it has waited. With Quarterdeck not in front, a notification
   comes after 45 seconds and once more 10 minutes later, and the Dock counts the waiting panes.
-- **Questions as forms.** The chief's questions open as Kage-e forms over the Bridge, in the app's language.
-- **Talk to the chief.** On macOS 26, press the parrot and talk. Nothing is sent until you press Send.
+- **A pane's permission question, on the Bridge.** When a pane's Claude asks for permission, the question also waits
+  as a card: the pane, the tool, the whole command or the file. Yes counts only from a pointer click and answers that
+  very question; the pane still asks in its terminal, and whichever you answer first decides.
+- **Questions as forms.** A Kage-e form from the chief waits as a QUESTION card among the panes and opens over the
+  Bridge, in the app's language.
+- **Your requests, in one list.** When the chief keeps a list of what you asked for, Active Work shows the ones waiting
+  for you, numbered, each with **Done ✓** and its pane's number. Whether you or the chief closed a request shows apart;
+  only your own click counts as yours.
+- **Talk to Pupa.** On macOS 26, press Pupa, the parrot: the window dims and only Pupa and your words stay in the
+  middle, for up to ten minutes, in the app's language. Nothing is sent until you press Send. In Settings Pupa can keep
+  listening while another app is in front (off by default; the Dock shows a dot meanwhile).
 - **Priority marks, a note drawer, drag to rearrange.** **⌘1–4** mark a pane, **⌘J** opens a note with its own session,
   and a pane moves by its title bar.
 - **English or Turkish.** The first launch follows your system; change it in settings or View → Language.
@@ -102,8 +111,10 @@ in that folder. A pane is your own Claude session, with the permissions you give
   web request. **Update** runs `brew upgrade --cask quarterdeck`, and only when you click it.
 - **Notifications.** A waiting pane's notification names the pane's folder, never the command it waits on: that could
   hold a key.
-- **Microphone.** Used only while you talk to the chief, after macOS asks your permission. Apple's on-device dictation turns
-  speech into text (macOS may download its speech model first), and the audio is not saved.
+- **Microphone.** Used only while you talk to Pupa, after macOS asks your permission. It stops when you press Pupa
+  again, close the Bridge or quit, and when another app comes in front unless you turned on listening in the background.
+  Apple's on-device dictation turns speech into text (macOS may download its speech model first), and the audio is not
+  saved.
 - **Your sessions.** State comes from `~/.claude/sessions/<pid>.json`, and the context weight from the session's transcript,
   both read on your Mac. The visible terminal screen is read in one place: a menu on it holds the chief's messages. Only
   that yes or no is kept.
