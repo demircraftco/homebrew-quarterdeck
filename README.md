@@ -2,7 +2,7 @@
 
 <!-- covers Quarterdeck 0.6.0 -->
 
-<p align="center"><img src="media/icon.png" width="140" alt="Quarterdeck icon: a pixel helm"> &nbsp; <img src="media/captain.png" width="140" alt="The author as a pixel-art pirate captain"></p>
+<p align="center"><img src="media/pupa.png" width="180" alt="Pupa, Quarterdeck's parrot: a teal pixel-art parrot in a captain's hat on a ship's rail"></p>
 
 **Ahoooy, captain!** 🏴‍☠️
 
@@ -12,7 +12,7 @@ and step in only where you're needed. This app is that spot for your Claude Code
 Run up to six sessions side by side in one window. Each pane's border tells you how its
 session is doing, so you stop clicking through tabs to find the one that needs you.
 
-<!-- Screenshots of the current interface go here. -->
+![The Bridge: the chief in the middle; on the left a pane's permission question with its whole command, and the panes; on the right the questions waiting and the approval history](media/bridge.png)
 
 ## Why
 
