@@ -85,7 +85,7 @@ The first time you open the Bridge, Claude Code asks whether you trust the chief
   language*), and says which while it listens. Nothing is sent until you press Send. In Settings Pupa can keep
   listening while another app is in front (off by default; the Dock shows a dot meanwhile).
 - **Links in panes open.** A link a pane prints asks once, naming the address; OK opens it in your browser (https, or
-  plain http only to this Mac or your home network).
+  plain http only to this Mac or a 192.168.x.x home network address).
 - **Priority marks, a note drawer, drag to rearrange.** **⌘1–4** mark a pane, **⌘J** opens a note with its own session,
   and a pane moves by its title bar.
 - **English or Turkish.** The first launch follows your system; change it in settings or View → Language.
