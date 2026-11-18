@@ -1,6 +1,6 @@
 # Quarterdeck
 
-<!-- covers Quarterdeck 0.6.0 -->
+<!-- covers Quarterdeck 0.6.1 -->
 
 <p align="center"><img src="media/pupa.png" width="180" alt="Pupa, Quarterdeck's parrot: a teal pixel-art parrot in a captain's hat on a ship's rail"></p>
 
@@ -66,7 +66,8 @@ The first time you open the Bridge, Claude Code asks whether you trust the chief
 - **The chief runs no commands.** A command it wants run waits as a card on the Bridge, whole, with its folder. Only a
   pointer click on **Yes, run it** runs it, in Quarterdeck's own shell; Enter does not. A risky pattern (`sudo`,
   `rm -rf`, a download piped to a shell, a hidden character and a few more) turns the card red. A card never calls a
-  command safe. A long command scrolls in its own box, and **Yes** opens once you have scrolled to its end.
+  command safe. A long command scrolls in its own box, and **Yes** opens once you have scrolled to its end. At most
+  five cards wait for you at once; deciding one makes room for the next. When a card is done, the chief hears it.
 - **One approval history.** The chief's messages and the commands you decided, newest first. Each row says whether it
   went through, and a command's output opens under it.
 - **A pane waiting for you says so.** Its card shows how long it has waited. With Quarterdeck not in front, a notification
@@ -80,8 +81,11 @@ The first time you open the Bridge, Claude Code asks whether you trust the chief
   for you, numbered, each with **Done ✓** and its pane's number. Whether you or the chief closed a request shows apart;
   only your own click counts as yours.
 - **Talk to Pupa.** On macOS 26, press Pupa, the parrot: the window dims and only Pupa and your words stay in the
-  middle, for up to ten minutes, in the app's language. Nothing is sent until you press Send. In Settings Pupa can keep
+  middle, for up to ten minutes. Pupa listens in the app's language, or the one you pick in Settings (*Pupa's listening
+  language*), and says which while it listens. Nothing is sent until you press Send. In Settings Pupa can keep
   listening while another app is in front (off by default; the Dock shows a dot meanwhile).
+- **Links in panes open.** A link a pane prints asks once, naming the address; OK opens it in your browser (https, or
+  plain http only to this Mac or your home network).
 - **Priority marks, a note drawer, drag to rearrange.** **⌘1–4** mark a pane, **⌘J** opens a note with its own session,
   and a pane moves by its title bar.
 - **English or Turkish.** The first launch follows your system; change it in settings or View → Language.
@@ -99,7 +103,8 @@ shell):
 - **It runs no command.** It asks with a card, and only your click runs the command.
 - **It searches the web** but does not open pages.
 - **It takes no message from another session.** A pane's report reaches it through the file Quarterdeck writes
-  (`durum.json`).
+  (`durum.json`). When a pane it manages finishes or asks, Quarterdeck tells it in one short line of its own: the
+  pane's name and what changed, never the pane's text.
 
 When a job needs more, the chief says which limit it hits before trying, and offers to hand the job to a pane working
 in that folder. A pane is your own Claude session, with the permissions you give it.
